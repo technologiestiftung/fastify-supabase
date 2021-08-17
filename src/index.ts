@@ -19,9 +19,9 @@ export interface SupabasePluginOptions {
   supabaseServiceRoleKey: string;
 }
 
-const FastifySupabase: FastifyPluginAsync<SupabasePluginOptions> = async (
-  fastify,
-  opts
+const FastifySupabase = async (
+  fastify: FastifyInstance,
+  opts: SupabasePluginOptions
 ) => {
   const supabaseAdmin = createClient(
     opts.supabaseUrl,
