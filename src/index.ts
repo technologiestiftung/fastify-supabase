@@ -25,7 +25,12 @@ const FastifySupabase = async (
 ) => {
   const supabaseAdmin = createClient(
     opts.supabaseUrl,
-    opts.supabaseServiceRoleKey
+    opts.supabaseServiceRoleKey,
+    {
+      autoRefreshToken: false,
+      persistSession: false,
+      detectSessionInUrl: false,
+    }
   );
   if (!fastify.supabase) {
     fastify.decorate("supabase", supabaseAdmin);
